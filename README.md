@@ -4,6 +4,8 @@
 
 This project provides a web application that captures media streams from various sources such as a webcam, desktop, or specific applications. It captures frames at intervals and uses AI to analyze and summarize the frames, providing insights using GPT-4.
 
+![GPT-4o Media Stream Capture and Analysis](https://github.com/ruvnet/ai-video/blob/main/assets/preview.png?raw=true)
+
 ### Key Features
 
 - **Media Stream Capture**: Capture video streams from a webcam, screen, or specific applications.
