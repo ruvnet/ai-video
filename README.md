@@ -56,8 +56,8 @@ This project provides a web application that captures media streams from various
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/ruvnet/{projectname}.git
-   cd {projectname}
+   git clone https://github.com/ruvnet/ai-video.git
+   cd ai-video
    ```
 
 2. **Install Dependencies**:
