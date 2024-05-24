@@ -91,13 +91,6 @@ numpy
   
 ### API Endpoints
 
-- **`GET /`**: Serves the main web application.
-- **`POST /process_frame`**: Processes a captured frame and returns the analysis result.
-
-### Customization
-
-- Customize prompts and refresh rates via the settings panel in the web application.
-- Configure the OpenAI API key via the settings panel.
 
 ## Contributing
 
