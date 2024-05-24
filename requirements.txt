@@ -1,0 +1,4 @@
+quart
+opencv-python-headless
+httpx
+numpy
