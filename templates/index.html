@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<!-- 
+     _____  .__  ____   ___.__    .___            
+    /  _  \ |__| \   \ /   |__| __| _/____  ____  
+   /  /_\  \|  |  \   Y   /|  |/ __ _/ __ \/  _ \ 
+  /    |    |  |   \     / |  / /_/ \  ___(  <_> )
+  \____|__  |__|    \___/  |__\____ |\___  \____/ 
+          \/                       \/    \/       
+                created by rUv
+        -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Stream Capture and Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            max-width: 720px;
+            margin-top: 20px;
+        }
+        #video {
+            width: 100%;
+            height: auto;
+            background-color: #ddd;
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .btn-group-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        .btn-group-toggle .btn {
+            width: auto;
+            margin: 0 10px;
+        }
+        .btn-group {
+            margin-bottom: 10px;
+        }
+        .btn-secondary.active {
+            background-color: #6c757d;
+            border-color: #6c757d;
+            color: white;
+        }
+        .settings-panel {
+            display: none;
+            margin-bottom: 20px;
+        }
+        .settings-panel .nav-tabs {
+            margin-bottom: 10px;
+        }
+        #formattedMarkdown {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h2 class="my-4">GPT-4o Media Stream Capture & Analysis</h2>
+        <p class="mb-4">A web app to capture and analyze media streams from your webcam, desktop, or specific apps. Easily switch sources and capture frames at intervals. Use AI for insightful frame analysis and summaries.</p>
+        <video id="video" class="mb-4" autoplay></video>
+        <div class="button-container">
+            <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="shareWebcam" autocomplete="off"> Share Webcam
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="shareScreen" autocomplete="off"> Share Screen
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="options" id="shareApplication" autocomplete="off"> Share Application
+                </label>
+            </div>
+            <div class="btn-group mb-4">
+                <button id="startCapture" class="btn btn-primary">📸 Start Capture</button>
+                <button id="stopCapture" class="btn btn-danger">🛑 Stop Capture</button>
+                <button id="toggleSettings" class="btn btn-info">⚙️ Settings</button>
+            </div>
+            
+        </div>
+        <div class="settings-panel card card-body">
+            <ul class="nav nav-tabs" id="settingsTabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="prompt-tab" data-toggle="tab" href="#prompt" role="tab" aria-controls="prompt" aria-selected="true">Prompt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="api-tab" data-toggle="tab" href="#api" role="tab" aria-controls="api" aria-selected="false">API Config</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="settingsTabsContent">
+                <div class="tab-pane fade show active" id="prompt" role="tabpanel" aria-labelledby="prompt-tab">
+                    <textarea id="customPrompt" class="form-control" rows="3" placeholder="Enter custom prompt here...">Analyze this frame</textarea>
+                </div>
+                <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                    <input type="number" id="refreshRate" class="form-control" placeholder="Refresh rate in seconds" value="15">
+                </div>
+                <div class="tab-pane fade" id="api" role="tabpanel" aria-labelledby="api-tab">
+                    <input type="text" id="apiKey" class="form-control" placeholder="OpenAI API Key" value="">
+                </div>
+                <button id="saveSettings" class="btn btn-success mt-3">Save Settings</button>
+            </div>
+        </div>
+        <div id="formattedMarkdown" class="text-left"></div>
+    </div>
+    <div class="container text-center">
+        created by rUv
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
